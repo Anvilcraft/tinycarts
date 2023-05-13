@@ -23,9 +23,9 @@ apply plugin: 'maven-publish'
 sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
 
-version = "1.0"
-group= "modgroup"
-archivesBaseName = "modid"
+version = "0.2"
+group= "tinycarts"
+archivesBaseName = "com.immibis"
 
 minecraft {
     version = "1.7.10-10.13.4.1614-1.7.10"
@@ -34,10 +34,16 @@ minecraft {
 
 repositories {
     maven { url = "https://maven.tilera.xyz" }
+    maven {
+        url = "https://s3.tilera.xyz/cdn/minecraft/libs/"
+        metadataSources {
+            artifact()
+        }
+    }
 }
 
 dependencies {
-
+    implementation 'com.immibis:immibis-core:59.1.4:deobf'
 }
 
 processResources {
